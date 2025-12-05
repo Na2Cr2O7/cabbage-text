@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>测测你是不是猪</title>
+  <title>测测你是不是🥬</title>
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#FFB6C1', // 浅粉色
+            primary: '#8cbc3d', // 浅绿色
             secondary: '#F5F5F5', // 浅灰色
             accent: '#FF69B4', // 亮粉色
           },
@@ -21,21 +22,21 @@
             sans: ['Arial Rounded MT Bold', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
           },
           animation: {
-            'bounce-slow': 'bounce 2s infinite',
-            'wiggle': 'wiggle 1s ease-in-out infinite',
-            'pulse-slow': 'pulse 3s infinite',
+            'bounce-slow': 'bounce 4s infinite',
+            'wiggle': 'wiggle 2s ease-in-out infinite',
+            'pulse-slow': 'pulse 6s infinite',
           },
           keyframes: {
             wiggle: {
-              '0%, 100%': { transform: 'rotate(-3deg)' },
-              '50%': { transform: 'rotate(3deg)' },
+              '0%, 100%': { transform: 'rotate(-23deg)' },
+              '50%': { transform: 'rotate(23deg)' },
             }
           }
         }
       }
     }
   </script>
-  
+
   <style type="text/tailwindcss">
     @layer utilities {
       .text-shadow {
@@ -118,13 +119,14 @@
     }
   </style>
 </head>
+
 <body class="bg-secondary min-h-screen flex flex-col items-center justify-center p-4">
   <div class="container max-w-md mx-auto text-center">
     <!-- 标题 -->
     <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary text-shadow-lg">
-      测测你是不是猪 <span class="text-accent">🐷</span>
+      你是不是包菜 <span class="text-accent">🥬</span>
     </h1>
-    
+
     <!-- 主内容区 -->
     <div class="bg-white rounded-3xl shadow-lg p-6 mb-8 transform transition-all duration-300 hover:shadow-xl">
       <!-- 测试区域 -->
@@ -132,232 +134,239 @@
         <div class="progress-container mx-auto">
           <!-- 圆形进度条 -->
           <svg class="progress-ring" width="200" height="200">
-            <circle
-              class="text-gray-200"
-              stroke-width="10"
-              stroke="currentColor"
-              fill="transparent"
-              r="85"
-              cx="100"
-              cy="100"
-            />
-            <circle
-              id="progress-circle"
-              class="text-primary progress-ring-circle"
-              stroke-width="10"
-              stroke="currentColor"
-              fill="transparent"
-              r="85"
-              cx="100"
-              cy="100"
-              stroke-dasharray="534.07"
-              stroke-dashoffset="534.07"
-            />
+            <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="85" cx="100"
+              cy="100" />
+            <circle id="progress-circle" class="text-primary progress-ring-circle" stroke-width="10"
+              stroke="currentColor" fill="transparent" r="85" cx="100" cy="100" stroke-dasharray="534.07"
+              stroke-dashoffset="534.07" />
           </svg>
-          
+
           <!-- 长按提示 -->
           <div id="press-hint" class="press-hint">
-            <div class="text-5xl mb-2">👇</div>
+            <div class="text-5xl mb-2">↓</div>
             <p class="text-lg text-gray-600">长按这里测试</p>
           </div>
-          
+
           <!-- 进度文本 -->
           <div id="progress-text" class="progress-text hidden">
             <span id="progress-percentage">0%</span>
           </div>
         </div>
-        
+
         <!-- 提示文字 -->
         <p id="instruction" class="text-gray-600 mt-6">
-          长按屏幕中间区域，看看你是什么猪！
+          长按屏幕中间区域，看看你是什么包菜！
         </p>
       </div>
-      
+
       <!-- 结果区域 (初始隐藏) -->
       <div id="result-area" class="hidden">
         <div class="bg-primary/10 rounded-2xl p-6 flex flex-col items-center justify-center h-64 mb-6">
           <img id="result-emoji" class="w-24 h-24 mb-4 float-animation" src="image/pig.png" alt="猪">
-          <h2 id="result-title" class="text-2xl font-bold text-gray-800 mb-2">猪</h2>
+          <h2 id="result-title" class="text-2xl font-bold text-gray-800 mb-2">1</h2>
           <p id="result-description" class="text-gray-600">
-            你是一只可爱的小猪猪！
+            23456789
           </p>
         </div>
-        
-        <button id="retest-button" class="hidden bg-primary text-white py-2 px-6 rounded-full font-medium mb-4 hover:bg-primary/80 transition-colors">
+
+        <button id="retest-button"
+          class="hidden bg-primary text-white py-2 px-6 rounded-full font-medium mb-4 hover:bg-primary/80 transition-colors">
           重新测试
         </button>
-        
-        <p class="text-gray-500 text-sm">
-          提示：结果已保存，刷新不会改变哦！
-        </p>
+
+        <button onclick="reset()">再来一次</button>
       </div>
     </div>
-    
+
     <!-- 页脚 -->
     <footer class="text-gray-500 text-sm">
       <p>作者：nanan <span class="text-primary">🐽</span></p>
+      <p>作者：12354566789ouikjghfds <span class="text-primary">🥬</span></p>
     </footer>
   </div>
 
   <script>
     // 结果数据
-    const pigResults = [
+    const Results = [
       {
-        id: "human",
-        name: "人类",
-        emoji: "👤",
-        description: "检测不出猪元素，是人类吗？",
+        id: "bah",
+        name: "石蒜",
+        emoji: "🥬",
+        description: "彼岸花",
         analysis: ""
       },
       {
-        id: "pig",
-        name: "猪",
-        emoji: "🐷",
-        description: "普通小猪",
+        id: "ExplodeCabbage2",
+        name: "手榴弹包菜",
+        emoji: "💣",
+        description: "妈的和你爆了",
+        analysis: ""
+      }, {
+        id: "GearCabbage2",
+        name: "机械包菜",
+        emoji: "⚙️",
+        description: "饱经风霜？",
+        analysis: ""
+      }, {
+        id: "CoconutCabbage",
+        name: "椰子包菜",
+        emoji: "🥥",
+        description: "好吃~",
+        analysis: ""
+      }, {
+        id: "vineCabbbage2",
+        name: "藤蔓包菜",
+        emoji: "🥬",
+        description: "那很内向了",
+        analysis: ""
+      }, {
+        id: "vineCabbbage2",
+        name: "藤蔓包菜",
+        emoji: "🥬",
+        description: "那很内向了",
         analysis: ""
       },
       {
-        id: "black-pig",
-        name: "小黑猪",
-        emoji: "🐖",
-        description: "小黑猪，卤出猪脚了",
+        id: "SplitCabbage",
+        name: "包菜横截面",
+        emoji: "🥬",
+        description: "掏心掏肺",
+        analysis: ""
+      },      {
+        id: "SilverCabbage",
+        name: "银包菜",
+        emoji: "🥈",
+        description: "纯洁高贵",
+        analysis: ""
+      },    {
+        id: "legoCabbage",
+        name: "积木包菜",
+        emoji: "🥬",
+        description: "反步兵地雷已部署",
+        analysis: ""
+      },{
+        id: "CloudyCabbage",
+        name: "多云包菜",
+        emoji: "🥬",
+        description: "局部地区有雨",
+        analysis: ""
+      },{
+        id: "aCabbage",
+        name: "全息包菜",
+        emoji: "🥬",
+        description: "~~~",
         analysis: ""
       },
       {
-        id: "wild-boar",
-        name: "野猪",
-        emoji: "🐗",
-        description: "你是一只勇猛的野猪！",
+        id: "ButterCabbage",
+        name: "黄油包菜",
+        emoji: "🍰",
+        description: "最强单体控制",
+        analysis: ""
+      },   
+         {
+        id: "GEARCabbage1",
+        name: "齿轮包菜",
+        emoji: "⚙️",
+        description: "齿轮的齿是什么线？",
+        analysis: ""
+      },   
+         {
+        id: "CDCabbage",
+        name: "光碟包菜",
+        emoji: "💿",
+        description: "💿",
+        analysis: ""
+      },     {
+        id: "windcabbage",
+        name: "飓风包菜",
+        emoji: "💨",
+        description: "呜呜呜呜",
+        analysis: ""
+      },  {
+        id: "GlassCabbage",
+        name: "玻璃包菜",
+        emoji: "🫗",
+        description: "易碎品",
+        analysis: ""
+      }, {
+        id: "windmillCabbage",
+        name: "风车包菜",
+        emoji: "🫗",
+        description: "呜~呜~呜~呜~",
+        analysis: ""
+      }, {
+        id: "QuantomEB",
+        name: "量子包菜",
+        emoji: "🥬",
+        description: "遇事不决量子力学",
+        analysis: ""
+      }, {
+        id: "cabbage11RB",
+        name: "像素包菜",
+        emoji: "🥬",
+        description: "复古风",
+        analysis: ""
+      }, {
+        id: "lightningCabbage",
+        name: "闪电包菜",
+        emoji: "⚡",
+        description: "🔋🔋🔋⚡⚡⚡",
+        analysis: ""
+      }, {
+        id: "cabsda",
+        name: "虚无包菜",
+        emoji: "🥬",
+        description: "",
+        analysis: ""
+      }, {
+        id: "cabbage2M3",
+        name: "纸包菜",
+        emoji: "🧻",
+        description: "🧻",
+        analysis: ""
+      },{
+        id: "GoldCabbage",
+        name: "黄金包菜",
+        emoji: "🪙",
+        description: "🪙🪙🪙🪙🪙🪙🪙🪙🪙",
+        analysis: ""
+      },{
+        id: "CardCabbage",
+        name: "卡牌包菜",
+        emoji: "🃏",
+        description: "17张牌你能秒我",
+        analysis: ""
+      },{
+        id: "IceCabb2",
+        name: "冰包菜",
+        emoji: "🧊",
+        description: "夏日救星",
+        analysis: ""
+      },{
+        id: "IceCabb",
+        name: "泡泡包菜",
+        emoji: "🫧",
+        description: "咕噜咕噜",
+        analysis: ""
+      },{
+        id: "cabbage",
+        name: "包菜",
+        emoji: "🥬",
+        description: "最普通的一集",
+        analysis: ""
+      },{
+        id: "cabbage2",
+        name: "紫甘蓝",
+        emoji: "🥬",
+        description: "你比包菜贵",
         analysis: ""
       },
-      {
-        id: "zhuge-liang",
-        name: "猪葛亮",
-        emoji: "🐷🧠",
-        description: "猪里最聪明的一个",
-        analysis: ""
-      },
-      {
-        id: "pig-stamp",
-        name: "猪圆章",
-        emoji: "🐷🔴",
-        description: "《猪圈那些事》",
-        analysis: ""
-      },
-      {
-        id: "zombie-pig",
-        name: "僵尸猪",
-        emoji: "🧟🐷",
-        description: "喜欢的食物是猪脑",
-        analysis: ""
-      },
-      {
-        id: "skeleton-pig",
-        name: "骷髅猪",
-        emoji: "💀🐷",
-        description: "资深不死族",
-        analysis: ""
-      },
-      {
-        id: "pig-human",
-        name: "猪人",
-        emoji: "🐷👤",
-        description: "你是猪还是人？",
-        analysis: ""
-      },
-      {
-        id: "demon-pig",
-        name: "恶魔猪",
-        emoji: "😈🐷",
-        description: "满肚子坏心眼",
-        analysis: ""
-      },
-      {
-        id: "heaven-pig",
-        name: "天堂猪",
-        emoji: "😇🐷",
-        description: "似了喵~",
-        analysis: ""
-      },
-      {
-        id: "explosive-pig",
-        name: "爆破小猪",
-        emoji: "💣🐷",
-        description: "我跟你爆了！",
-        analysis: ""
-      },
-      {
-        id: "black-white-pig",
-        name: "黑白猪",
-        emoji: "⚫⚪🐷",
-        description: "串子",
-        analysis: ""
-      },
-      {
-        id: "pork-skewer",
-        name: "猪肉串",
-        emoji: "🍢",
-        description: "真正的串子",
-        analysis: ""
-      },
-      {
-        id: "magic-pig",
-        name: "魔法少猪",
-        emoji: "🪄🐷",
-        description: "马猪烧酒",
-        analysis: ""
-      },
-      {
-        id: "mechanical-pig",
-        name: "机械猪",
-        emoji: "🤖🐷",
-        description: "人机",
-        analysis: ""
-      },
-      {
-        id: "pig-ball",
-        name: "猪猪球",
-        emoji: "🏀🐷",
-        description: "滚了",
-        analysis: ""
-      },
-      {
-        id: "doll-pig",
-        name: "玩偶猪",
-        emoji: "🧸🐷",
-        description: "fufu小猪",
-        analysis: ""
-      },
-      {
-        id: "soul-pig",
-        name: "灵魂猪",
-        emoji: "👻🐷",
-        description: "从冥界归来的猪",
-        analysis: ""
-      },
-      {
-        id: "crystal-pig",
-        name: "水晶猪",
-        emoji: "💎🐷",
-        description: "珍贵又脆弱的小猪",
-        analysis: ""
-      },
-      {
-        id: "snow-pig",
-        name: "雪猪",
-        emoji: "❄️🐷",
-        description: "洁白的雪猪",
-        analysis: ""
-      },
-      {
-        id: "pig-cat",
-        name: "猪咪",
-        emoji: "🐷🐱",
-        description: "你是一只可爱的猪咪！",
-        analysis: ""
-      }
-    ];
 
+    ];
+    function reset() {
+      location.reload();
+    }
     // DOM 元素
     const testArea = document.getElementById('test-area');
     const resultArea = document.getElementById('result-area');
@@ -370,94 +379,81 @@
     const resultTitle = document.getElementById('result-title');
     const resultDescription = document.getElementById('result-description');
     const retestButton = document.getElementById('retest-button');
-    
+
     // 进度条参数
     const circumference = 2 * Math.PI * 85; // 圆的周长
-    const requiredHoldTime = 3000; // 长按所需时间（毫秒）
+    const requiredHoldTime = 300; // 长按所需时间（毫秒）
     let startTime = 0;
     let isHolding = false;
     let progressInterval;
-    
+
     // 初始化进度条
     progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
     progressCircle.style.strokeDashoffset = circumference;
-    
-    // 检查是否已有结果
-    let savedResult = null;
-    try {
-      savedResult = localStorage.getItem('pigTestResult');
-      if (savedResult) {
-        showResult(JSON.parse(savedResult));
-      }
-    } catch (error) {
-      console.error('读取本地存储失败:', error);
-      // 清除可能损坏的数据
-      localStorage.removeItem('pigTestResult');
-      savedResult = null;
-    }
-    
+
+
     // 长按开始事件
     function handleHoldStart(e) {
       // 阻止默认行为
       e.preventDefault();
-      
+
       // 如果已有结果，不执行任何操作
-      if (localStorage.getItem('pigTestResult')) return;
-      
+      // if (localStorage.getItem('pigTestResult')) return;
+
       isHolding = true;
       startTime = Date.now();
-      
+
       // 显示进度条
       progressText.classList.remove('hidden');
       pressHint.classList.add('hidden');
       instruction.textContent = '正在测试中...';
-      
+
       // 开始更新进度条
       progressInterval = setInterval(updateProgress, 30);
-      
+
       // 添加视觉反馈
-      testArea.classList.add('scale-105');
-      testArea.style.transition = 'transform 0.2s';
+      testArea.classList.add('scale-125');
+      testArea.style.transition = 'transform 2s';
     }
-    
+
     // 长按结束事件
     function handleHoldEnd() {
       // 如果已有结果，不执行任何操作
-      if (localStorage.getItem('pigTestResult')) return;
-      
+      // if (localStorage.getItem('pigTestResult')) return;
+
       isHolding = false;
       clearInterval(progressInterval);
-      
+
       // 重置进度条
       resetProgress();
-      
+
       // 恢复视觉效果
       testArea.classList.remove('scale-105');
-      instruction.textContent = '将手指放到屏幕中间区域，长按汲取猪元素';
+      instruction.textContent = '将手指放到屏幕中间区域';
     }
-    
+
     // 更新进度条
     function updateProgress() {
       if (!isHolding) return;
-      
+
       const elapsedTime = Date.now() - startTime;
       const progress = Math.min(elapsedTime / requiredHoldTime, 1);
       const offset = circumference - (progress * circumference);
-      
+
       // 更新进度条
       progressCircle.style.strokeDashoffset = offset;
-      
+
       // 更新百分比文本
       const percentage = Math.round(progress * 100);
       progressPercentage.textContent = `${percentage}%`;
-      
+
       // 如果达到100%，生成结果
       if (progress >= 1) {
         clearInterval(progressInterval);
         generateResult();
       }
     }
-    
+
     // 重置进度条
     function resetProgress() {
       clearInterval(progressInterval);
@@ -466,20 +462,18 @@
       pressHint.classList.remove('hidden');
       progressPercentage.textContent = '0%';
     }
-    
+
     // 生成随机结果
     function generateResult() {
       try {
         // 播放完成音效
         playSound('complete');
-        
+
         // 随机选择一个结果
-        const randomIndex = Math.floor(Math.random() * pigResults.length);
-        const result = pigResults[randomIndex];
-        
-        // 保存结果到本地存储
-        localStorage.setItem('pigTestResult', JSON.stringify(result));
-        
+        const randomIndex = Math.floor(Math.random() * Results.length);
+        const result = Results[randomIndex];
+
+
         // 显示结果
         showResult(result);
       } catch (error) {
@@ -490,105 +484,106 @@
         instruction.textContent = '长按屏幕中间区域，看看你是什么猪！';
       }
     }
-    
+
     // 显示结果
     function showResult(result) {
       // 隐藏测试区域，显示结果区域
       testArea.classList.add('hidden');
       resultArea.classList.remove('hidden');
-      
+
       // 设置结果内容
       const imageSrc = `image/${result.id}.png`;
       resultEmoji.src = imageSrc;
       resultEmoji.alt = result.name;
       resultTitle.textContent = result.name;
       resultDescription.textContent = result.description;
-      
+
       // 添加图片加载失败处理
-      resultEmoji.onerror = function() {
-        // 如果图片加载失败，使用默认图片
-        resultEmoji.src = 'image/pig.png';
+      resultEmoji.onerror = function () {
+        // 如果图片加载失败，说不定是base64
+        resultEmoji.src = result.id;
       };
-      
+
       // 添加结果出现动画
       resultArea.style.opacity = '0';
       resultArea.style.transform = 'translateY(20px)';
       resultArea.style.transition = 'opacity 0.5s, transform 0.5s';
-      
+
       setTimeout(() => {
         resultArea.style.opacity = '1';
         resultArea.style.transform = 'translateY(0)';
       }, 10);
     }
-    
+
     // 播放音效
     function playSound(type) {
       try {
         // 创建音频上下文
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const audioCtx = new AudioContext();
-        
+
         // 创建振荡器
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
-        
+
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
-        
+
         // 设置音效参数
         if (type === 'complete') {
           oscillator.type = 'sine';
           oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
           oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
-          oscillator.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2); // G5
-          
-          gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-          gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-          
+          oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime + .2); // C5
+          oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.3); // E5
+
+          gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+
           oscillator.start(audioCtx.currentTime);
-          oscillator.stop(audioCtx.currentTime + 0.3);
+          oscillator.stop(audioCtx.currentTime + 0.6);
         }
       } catch (error) {
         console.error('播放音效失败:', error);
         // 音效播放失败不影响主要功能
       }
     }
-    
 
-    
+
+
     // 重新测试函数
     function handleRetest() {
       try {
         // 清除本地存储结果
         localStorage.removeItem('pigTestResult');
-        
+
         // 重置进度条
         resetProgress();
-        
+
         // 显示测试区域，隐藏结果区域
         testArea.classList.remove('hidden');
         resultArea.classList.add('hidden');
-        
+
         // 重置提示文字
-        instruction.textContent = '长按屏幕中间区域，看看你是什么猪！';
+        instruction.textContent = '长按屏幕中间区域，看看你是什么包菜！';
       } catch (error) {
         console.error('重新测试失败:', error);
       }
     }
-    
+
     // 触摸事件监听
     try {
       const progressContainer = document.querySelector('.progress-container');
-      
+
       if (progressContainer) {
         progressContainer.addEventListener('mousedown', handleHoldStart);
         progressContainer.addEventListener('touchstart', handleHoldStart);
       }
-      
+
       document.addEventListener('mouseup', handleHoldEnd);
       document.addEventListener('touchend', handleHoldEnd);
       document.addEventListener('touchcancel', handleHoldEnd);
-      
+
       // 重新测试按钮事件监听
       retestButton.addEventListener('click', handleRetest);
     } catch (error) {
@@ -596,4 +591,5 @@
     }
   </script>
 </body>
+
 </html>
